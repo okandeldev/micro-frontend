@@ -1,16 +1,18 @@
 import Header from "components/Header";
-import React, { Suspense } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 import { Container } from "react-bootstrap";
-const TodoList = React.lazy(() => import("TodoModule/Todo"));
+import { RemoteComponent } from "remote/RemoteComponent";
 function App() {
   return (
     <div className="App">
       <Header />
-      <Container> 
-        <Suspense fallback="Loading...">
-          <TodoList />
-        </Suspense>
+      <Container>
+        <RemoteComponent
+          remoteName="TodoModule"
+          remoteUrl={"http://localhost:3001/remoteEntry.js"}
+          module="Todo"
+        />
       </Container>
     </div>
   );

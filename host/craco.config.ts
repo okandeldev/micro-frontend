@@ -9,10 +9,7 @@ module.exports = {
       add: [
         new ModuleFederationPlugin({
           name: "host",
-          remotes: {
-            TodoModule: "TodoModule@http://localhost:3001/remoteEntry.js",
-            AnotherModule: "AnotherModule@http://localhost:3002/remoteEntry.js", 
-          }, 
+           
           shared: {
             react: { singleton: true },
             "react-dom": { singleton: true },
